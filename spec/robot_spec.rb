@@ -52,4 +52,43 @@ describe Robot do
     end
   end
 
+  describe "#move" do
+    it "move one position to N" do
+      board.orientation = N
+      board.row = 5
+      board.col = 5
+      robot.board = board
+      robot.move
+      board.row.should == 6
+      board.col.should == 5
+    end
+    it "move one position to S" do
+      board.orientation = S
+      board.row = 5
+      board.col = 5
+      robot.board = board
+      robot.move
+      board.row.should == 4
+      board.col.should == 5
+    end
+    it "move one position to E" do
+      board.orientation = E
+      board.row = 5
+      board.col = 5
+      robot.board = board
+      robot.move
+      board.row.should == 5
+      board.col.should == 6
+    end
+    it "move one position to W" do
+      board.orientation = W
+      board.row = 5
+      board.col = 5
+      robot.board = board
+      robot.move
+      board.row.should == 5
+      board.col.should == 4
+    end
+  end
+
 end

@@ -13,6 +13,14 @@ class Robot
     rotate(-1)
   end
 
+  def move
+    if board.orientation.even?
+      board.row += -(board.orientation - 1)
+    else
+      board.col += -(board.orientation - 2)
+    end
+  end
+
   private
 
     def rotate(const)
