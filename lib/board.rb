@@ -1,8 +1,5 @@
 require 'orientation'
-
-class BoardRowOutOfBoundsException < Exception; end
-class BoardColOutOfBoundsException < Exception; end
-class InvalidOrientationException  < Exception; end
+require 'exceptions'
 
 class Board
   include Orientation
