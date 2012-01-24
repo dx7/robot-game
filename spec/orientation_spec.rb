@@ -13,4 +13,7 @@ describe Orientation do
   it 'has W constant' do
     Orientation::W.should == 'W'
   end
+  it 'return all orientations' do
+    Orientation.all.should == ['N', 'S', 'E', 'W']
+  end
 end
