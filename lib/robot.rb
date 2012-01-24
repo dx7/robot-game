@@ -21,6 +21,11 @@ class Robot
     end
   end
 
+  def jump(row, col)
+    board.row = row
+    board.col = col
+  end
+
   private
 
     def rotate(const)

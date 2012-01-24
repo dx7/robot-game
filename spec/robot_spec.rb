@@ -88,4 +88,22 @@ describe Robot do
     end
   end
 
+  describe "#jump" do
+    before do
+      board.orientation = E
+    end
+
+    it "jump to position 1, 2" do
+      robot.jump(1, 2)
+      board.row.should == 1
+      board.col.should == 2
+    end
+    it "raise error when jump to position 11, 2" do
+      expect { robot.jump(11, 2) }.to raise_error(BoardRowOutOfBoundsException)
+    end
+    it "raise error when jump to position 1, 22" do
+      expect { robot.jump(1, 22) }.to raise_error(BoardColOutOfBoundsException)
+    end
+  end
+
 end
