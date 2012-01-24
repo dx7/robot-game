@@ -6,10 +6,16 @@ class Robot
   end
 
   def right
-    self.board.orientation = (board.orientation + 1).modulo 4
+    rotate(1)
   end
 
   def left
-    self.board.orientation = (board.orientation - 1).modulo 4
+    rotate(-1)
   end
+
+  private
+
+    def rotate(const)
+      self.board.orientation = (board.orientation + const).modulo 4
+    end
 end
