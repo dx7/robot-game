@@ -1,5 +1,5 @@
-require 'orientation'
-require 'exceptions'
+require File.expand_path("./lib/orientation")
+require File.expand_path("./lib/exceptions")
 
 class Board
   include Orientation
