@@ -3,11 +3,10 @@ require File.expand_path("./lib/board")
 require File.expand_path("./lib/robot")
 include Orientation
 
-class Game
+class RobotGame
 
-  def initialize
+  def initialize(file_path)
     @main_actions = { 'L' => :left, 'R' => :right, 'M' => :move }
-    file_path = ARGV[0]
     @file = File.new(file_path)
   end
 
@@ -43,6 +42,6 @@ class Game
   end
 end
 
-game = Game.new
+game = RobotGame.new(ARGV[0])
 game.play
 puts game.result
