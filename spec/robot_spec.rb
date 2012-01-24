@@ -53,38 +53,67 @@ describe Robot do
   end
 
   describe "#move" do
-    before do
-      board.row = 5
-      board.col = 5
+    context "valid positions" do
+      before do
+        board.row = 5
+        board.col = 5
+      end
+
+      it "move one position to N" do
+        board.orientation = N
+        robot.board = board
+        robot.move
+        board.row.should == 6
+        board.col.should == 5
+      end
+      it "move one position to S" do
+        board.orientation = S
+        robot.board = board
+        robot.move
+        board.row.should == 4
+        board.col.should == 5
+      end
+      it "move one position to E" do
+        board.orientation = E
+        robot.board = board
+        robot.move
+        board.row.should == 5
+        board.col.should == 6
+      end
+      it "move one position to W" do
+        board.orientation = W
+        robot.board = board
+        robot.move
+        board.row.should == 5
+        board.col.should == 4
+      end
     end
 
-    it "move one position to N" do
-      board.orientation = N
-      robot.board = board
-      robot.move
-      board.row.should == 6
-      board.col.should == 5
-    end
-    it "move one position to S" do
-      board.orientation = S
-      robot.board = board
-      robot.move
-      board.row.should == 4
-      board.col.should == 5
-    end
-    it "move one position to E" do
-      board.orientation = E
-      robot.board = board
-      robot.move
-      board.row.should == 5
-      board.col.should == 6
-    end
-    it "move one position to W" do
-      board.orientation = W
-      robot.board = board
-      robot.move
-      board.row.should == 5
-      board.col.should == 4
+    context "invalid positions" do
+      it "raise error when move to out of bounds to N" do
+        board.orientation = N
+        board.row = 10
+        robot.board = board
+        expect { robot.move }.to raise_error(BoardRowOutOfBoundsException)
+      end
+      it "raise error when move to out of bounds to S" do
+        board.orientation = S
+        board.row = 1
+        robot.board = board
+        expect { robot.move }.to raise_error(BoardRowOutOfBoundsException)
+      end
+      it "raise error when move to out of bounds to E" do
+        board.orientation = E
+        board.col = 10
+        robot.board = board
+        expect { robot.move }.to raise_error(BoardColOutOfBoundsException)
+      end
+      it "raise error when move to out of bounds to W" do
+        board.orientation = W
+        board.col = 1
+        robot.board = board
+        expect { robot.move }.to raise_error(BoardColOutOfBoundsException)
+      end
     end
   end
 
