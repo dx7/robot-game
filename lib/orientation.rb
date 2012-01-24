@@ -7,4 +7,8 @@ module Orientation
   def self.all
     [N, E, S, W]
   end
+
+  def self.name(number)
+    ['N', 'E', 'S', 'W'][number]
+  end
 end
