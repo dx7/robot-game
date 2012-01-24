@@ -1,10 +1,10 @@
 module Orientation
-  N = 'N'
-  S = 'S'
-  E = 'E'
-  W = 'W'
+  N = 0
+  E = 1
+  S = 2
+  W = 3
 
   def self.all
-    [N, S, E, W]
+    [N, E, S, W]
   end
 end
