@@ -29,4 +29,27 @@ describe Robot do
     end
   end
 
+  describe "#left" do
+    it "change N to W" do
+      board.orientation = N
+      robot.left
+      board.orientation.should == W
+    end
+    it "change W to S" do
+      board.orientation = W
+      robot.left
+      board.orientation.should == S
+    end
+    it "change S to E" do
+      board.orientation = S
+      robot.left
+      board.orientation.should == E
+    end
+    it "change E to N" do
+      board.orientation = E
+      robot.left
+      board.orientation.should == N
+    end
+  end
+
 end

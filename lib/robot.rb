@@ -8,4 +8,8 @@ class Robot
   def right
     self.board.orientation = (board.orientation + 1).modulo 4
   end
+
+  def left
+    self.board.orientation = (board.orientation - 1).modulo 4
+  end
 end
