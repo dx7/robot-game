@@ -12,6 +12,32 @@ describe Board do
     end
   end
 
+  describe "#rows=" do
+    it "return rows" do
+      result = board.rows=(1)
+      result.should == 1
+    end
+    it "raise error if rows is 0" do
+      expect { board.rows = 0 }.to raise_error(BoardRowsInvalidException)
+    end
+    it "raise error if rows is less than 0" do
+      expect { board.rows = -2 }.to raise_error(BoardRowsInvalidException)
+    end
+  end
+
+  describe "#cols=" do
+    it "return cols" do
+      result = board.cols=(1)
+      result.should == 1
+    end
+    it "raise error if cols is 0" do
+      expect { board.cols = 0 }.to raise_error(BoardColsInvalidException)
+    end
+    it "raise error if cols is less than 0" do
+      expect { board.cols = -2 }.to raise_error(BoardColsInvalidException)
+    end
+  end
+
   describe "#row=" do
     it "return row" do
       result = board.row=(1)

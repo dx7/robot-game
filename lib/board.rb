@@ -4,12 +4,21 @@ require File.expand_path("./lib/exceptions")
 class Board
   include Orientation
 
-  attr_accessor :rows, :cols
-  attr_reader :row, :col, :orientation
+  attr_reader :rows, :cols, :row, :col, :orientation
 
   def initialize(cols, rows)
     self.rows = rows
     self.cols = cols
+  end
+
+  def rows=(rows)
+    raise BoardRowsInvalidException if rows <= 0
+    @rows = rows
+  end
+
+  def cols=(cols)
+    raise BoardColsInvalidException if cols <= 0
+    @cols = cols
   end
 
   def row=(row)
