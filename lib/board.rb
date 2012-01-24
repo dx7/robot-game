@@ -1,8 +1,14 @@
+require 'orientation'
+
 class BoardRowOutOfBoundsException < Exception; end
+class BoardColOutOfBoundsException < Exception; end
+class InvalidOrientationException  < Exception; end
 
 class Board
+  include Orientation
+
   attr_accessor :rows, :cols
-  attr_reader :row, :col
+  attr_reader :row, :col, :orientation
 
   def initialize(rows, cols)
     self.rows = rows
@@ -17,5 +23,10 @@ class Board
   def col=(col)
     raise BoardColOutOfBoundsException if col > self.cols || col <= 0
     @col = col
+  end
+
+  def orientation=(orientation)
+    raise InvalidOrientationException unless Orientation.all.include?(orientation)
+    @orientation = orientation
   end
 end
