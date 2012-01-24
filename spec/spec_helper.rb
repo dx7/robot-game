@@ -1,2 +1,2 @@
 require File.expand_path("./lib/board")
-require File.expand_path("./lib/orientation")
+require File.expand_path("./lib/robot")
