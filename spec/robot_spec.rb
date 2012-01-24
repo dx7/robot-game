@@ -53,10 +53,13 @@ describe Robot do
   end
 
   describe "#move" do
-    it "move one position to N" do
-      board.orientation = N
+    before do
       board.row = 5
       board.col = 5
+    end
+
+    it "move one position to N" do
+      board.orientation = N
       robot.board = board
       robot.move
       board.row.should == 6
@@ -64,8 +67,6 @@ describe Robot do
     end
     it "move one position to S" do
       board.orientation = S
-      board.row = 5
-      board.col = 5
       robot.board = board
       robot.move
       board.row.should == 4
@@ -73,8 +74,6 @@ describe Robot do
     end
     it "move one position to E" do
       board.orientation = E
-      board.row = 5
-      board.col = 5
       robot.board = board
       robot.move
       board.row.should == 5
@@ -82,8 +81,6 @@ describe Robot do
     end
     it "move one position to W" do
       board.orientation = W
-      board.row = 5
-      board.col = 5
       robot.board = board
       robot.move
       board.row.should == 5
