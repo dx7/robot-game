@@ -7,7 +7,7 @@ class Board
   attr_accessor :rows, :cols
   attr_reader :row, :col, :orientation
 
-  def initialize(rows, cols)
+  def initialize(cols, rows)
     self.rows = rows
     self.cols = cols
   end

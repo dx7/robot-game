@@ -21,7 +21,7 @@ class Robot
     end
   end
 
-  def jump(row, col)
+  def jump(col, row)
     board.row = row
     board.col = col
   end
