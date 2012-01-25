@@ -157,4 +157,12 @@ describe RobotGame do
     play_game(moves).should == "2 1 W"
   end
 
+  it "exec from command line properly" do
+    `./bin/robot.rb ./spec/fixtures/input_01.txt`.should == "2 1 W\n"
+  end
+
+  it "exec from command line with error" do
+    `./bin/robot.rb`.should == "===> File path is missing\n===> Use:\n     ruby bin/robot.rb path/to/file.txt\n"
+  end
+
 end
