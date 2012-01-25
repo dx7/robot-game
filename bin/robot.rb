@@ -1,11 +1,13 @@
 #!/usr/bin/env ruby
 require File.expand_path("./lib/board")
 require File.expand_path("./lib/robot")
+require File.expand_path("./lib/exceptions")
 include Orientation
 
 class RobotGame
 
   def initialize(file_path)
+    raise FilePathMissingException if file_path.nil?
     @main_actions = { 'L' => :left, 'R' => :right, 'M' => :move }
     @file = File.new(file_path)
   end
@@ -60,7 +62,13 @@ class RobotGame
 end
 
 if __FILE__ == $0
-  game = RobotGame.new(ARGV[0])
-  game.play
-  puts game.result
+  begin
+    game = RobotGame.new(ARGV[0])
+    game.play
+    puts game.result
+  rescue FilePathMissingException
+    puts "===> File path is missing"
+    puts "===> Use:"
+    puts "     ruby bin/robot.rb path/to/file.txt"
+  end
 end
