@@ -16,5 +16,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  rake
-  rspec
+  bundler (= 1.1.rc.7)
+  rake (= 0.9.2)
+  rspec (= 2.8.0)
